@@ -1,0 +1,28 @@
+$font-family: "Montserrat", sans-serif;;
+
+$header-width: 1200px;
+
+$colores: (
+  "blanco":#FFFFFF,
+  "negro": #000000,
+  "primary": #00567E,
+  "Blanco-F5EDED": #F5EDED
+);
+
+:root{
+  @each $name, $value in $colores {
+      --#{$name}: #{$value};
+  }
+}
+  
+@each $name, $value in $colores {
+  @include __color('#{$name}', var(--#{$name}))
+}
+
+// Define a mixin for a border-radius
+@mixin flex($display, $justify, $align, $gap) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
