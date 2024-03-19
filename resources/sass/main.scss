@@ -3,6 +3,15 @@
 @import './initial/variables';
 @import './initial/global';
 
+// Default theme
+@import url('@splidejs/splide/css');
+// or other themes
+@import url('@splidejs/splide/css/skyblue');
+@import url('@splidejs/splide/css/sea-green');
+
+// or only core styles
+@import url('@splidejs/splide/css/core');
+
 
 // Glide
 @import "../node_modules/@glidejs/glide/src/assets/sass/glide.core";

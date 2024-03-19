@@ -13,9 +13,6 @@ body{
 
 main{
   width: 100%;
-  max-width: 1280px;
-  min-width: 1280px;
-  margin: 0 auto;
   position: relative;
 }
 
@@ -42,4 +39,80 @@ a:hover{
 
 .mt-15 {
   margin-top: 15px;
+}
+
+
+.conten_padre {
+  width: 100%;
+  .banner_general {
+    width: 100%;
+    position: relative;
+    @include flex(flex, center, center, 0);      
+    .img_banner {
+      width: 100%;
+      position: relative;
+    }
+    .content_inter_banner {
+      width: 90%;  
+      max-width: $width-general;    
+      position: absolute;
+      @include flex(flex, space-between, center, 0);      
+      .part_one {
+        width: 65%;
+        .encabezado {
+          font-size: 68px;
+          font-weight: 700;
+          line-height: 68px;
+          letter-spacing: 0em;
+          text-align: left;
+          color: var(--blanco);
+        }
+        .text {
+          padding-top: 2rem;
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 22px;
+          letter-spacing: 0em;
+          text-align: left;
+          color: var(--blanco);
+        }
+      }
+      .part_two {
+        width: 30%;
+        text-align: right;
+      }
+    }
+  }
+}
+
+.splide {
+  padding: 0em;
+}
+
+.splide__pagination {
+  bottom: -2em;
+  left: 0;
+  padding: 0 1em;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+.splide__pagination__page {
+  background: #ccc;
+  border: 0;
+  border-radius: 0px;
+  display: inline-block;
+  height: 3px;
+  margin-right: 10px;
+  padding: 0;
+  position: relative;
+  transition: background-color .2s linear;
+  width: 35px;
+}
+
+.splide__pagination__page.is-active {
+  width: 29px;
+  background: var(--primary);
+  z-index: 1;
 }
