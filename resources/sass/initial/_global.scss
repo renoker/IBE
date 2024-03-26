@@ -78,47 +78,9 @@ a:hover{
 }
 
 
+
 .conten_padre {
   width: 100%;
-  .banner_general {
-    width: 100%;
-    position: relative;
-    @include flex(flex, center, center, 0);      
-    .img_banner {
-      width: 100%;
-      position: relative;
-    }
-    .content_inter_banner {
-      width: 90%;  
-      max-width: $width-general;    
-      position: absolute;
-      @include flex(flex, space-between, center, 0);      
-      .part_one {
-        width: 65%;
-        .encabezado {
-          font-size: 68px;
-          font-weight: 700;
-          line-height: 68px;
-          letter-spacing: 0em;
-          text-align: left;
-          color: var(--blanco);
-        }
-        .text {
-          padding-top: 2rem;
-          font-size: 20px;
-          font-weight: 500;
-          line-height: 22px;
-          letter-spacing: 0em;
-          text-align: left;
-          color: var(--blanco);
-        }
-      }
-      .part_two {
-        width: 30%;
-        text-align: right;
-      }
-    }
-  }
   .content_banner_slider {
     width: 100%;
     position: relative;
@@ -161,6 +123,46 @@ a:hover{
         cursor: pointer;
         @include flex(flex, center, flex-start, 15px);
       }
+    }
+  }
+}
+
+.banner_general {
+  width: 100%;
+  position: relative;
+  @include flex(flex, center, center, 0);      
+  .img_banner {
+    width: 100%;
+    position: relative;
+  }
+  .content_inter_banner {
+    width: 90%;  
+    max-width: $width-general;    
+    position: absolute;
+    @include flex(flex, space-between, center, 0);      
+    .part_one {
+      width: 65%;
+      .encabezado {
+        font-size: 68px;
+        font-weight: 700;
+        line-height: 68px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: var(--blanco);
+      }
+      .text {
+        padding-top: 2rem;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: var(--blanco);
+      }
+    }
+    .part_two {
+      width: 30%;
+      text-align: right;
     }
   }
 }
