@@ -9,9 +9,11 @@
         width: 100%;
         height: 100%;
         background: #00567E4D;
-        z-index: 100;
+        z-index:10;
         @include flex(flex, center, center, 0); 
         .content_contacto {
+            position: relative;
+            z-index: 40;
             width: 600px;
             height: 523px;
             padding: 20px 30px;

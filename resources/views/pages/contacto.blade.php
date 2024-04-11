@@ -25,33 +25,35 @@
                     <p class="p">Gracias por visitarnos, si requieres preguntar por alguno de nuestros productos o
                         servicios contáctanos por medio de nuestros números telefónicos, correos o redes sociales, te
                         responderemos de inmediato.</p>
-                    <form action="" method="post">
+                    <form action="{{ route('contact.store') }}" method="post">
+                        @method('POST')
+                        @csrf
                         <div class="box_input">
                             <div class="icon_input">
                                 <img src="{{ url('icons/user.png') }}" alt="">
                             </div>
-                            <input type="text" placeholder="Compañia">
+                            <input type="text" placeholder="Nombre" name="name">
                         </div>
                         <div class="box_input mt-15">
                             <div class="icon_input">
                                 <img src="{{ url('icons/ping.png') }}" alt="">
                             </div>
-                            <input type="text" placeholder="Compañia">
+                            <input type="text" placeholder="Compañia" name="company">
                         </div>
                         <div class="box_input mt-15">
                             <div class="icon_input">
                                 <img src="{{ url('icons/cel.png') }}" alt="">
                             </div>
-                            <input type="tel" placeholder="Teléfono">
+                            <input type="tel" placeholder="Teléfono" name="phone">
                         </div>
                         <div class="box_input mt-15">
                             <div class="icon_input">
                                 <img src="{{ url('icons/cartita.png') }}" alt="">
                             </div>
-                            <input type="email" placeholder="Correo">
+                            <input type="email" placeholder="Correo" name="email">
                         </div>
                         <div class="box_input mt-15">
-                            <textarea name="" id="" cols="30" rows="5" class="textarea" placeholder="Mensaje"></textarea>
+                            <textarea name="message" id="" cols="30" rows="5" class="textarea" placeholder="Mensaje"></textarea>
                         </div>
                         <div class="content_button_footer_send">
                             <button type="submit">Envíar</button>

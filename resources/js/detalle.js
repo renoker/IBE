@@ -19,10 +19,10 @@ menuButtonPrew.addEventListener('click', () => {
     }
 })
 
-buttonClose.addEventListener('click', () => {
-    var popup = document.getElementById('popup')
-    popup.classList.remove('active')
-})
+// buttonClose.addEventListener('click', () => {
+//     var popup = document.getElementById('popup')
+//     popup.classList.remove('active')
+// })
 
 buttonOpen.addEventListener('click', () => {
     var popup = document.getElementById('popup')

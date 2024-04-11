@@ -8,33 +8,36 @@
                 <h1 class="h1">Cuestionario</h1>
                 <p class="p">En IBE Solutions queremos ser un auxiliar primordial para el desarrollo de su empresa.
                     compártenos tus datos de contacto y un asesor se comunicará contigo.</p>
-                <form action="" method="post">
+                <form action="{{ route('cotizacion.store') }}" method="post">
+                    @method('POST')
+                    @csrf
+                    <input type="hidden" name="directorie_id" value="{{ $row->id }}">
                     <div class="box_input">
                         <div class="icon_input">
                             <img src="{{ url('icons/user.png') }}" alt="">
                         </div>
-                        <input type="text" placeholder="Nombre">
+                        <input type="text" placeholder="Nombre" name="name">
                     </div>
                     <div class="box_input mt-15">
                         <div class="icon_input">
                             <img src="{{ url('icons/ping.png') }}" alt="">
                         </div>
-                        <input type="text" placeholder="Compañia">
+                        <input type="text" placeholder="Compañia" name="company">
                     </div>
                     <div class="box_input mt-15">
                         <div class="icon_input">
                             <img src="{{ url('icons/cel.png') }}" alt="">
                         </div>
-                        <input type="tel" placeholder="Teléfono">
+                        <input type="tel" placeholder="Teléfono" name="phone">
                     </div>
                     <div class="box_input mt-15">
                         <div class="icon_input">
                             <img src="{{ url('icons/cartita.png') }}" alt="">
                         </div>
-                        <input type="email" placeholder="Correo">
+                        <input type="email" placeholder="Correo" name="email">
                     </div>
                     <div class="box_input mt-15">
-                        <textarea name="" id="" cols="30" rows="5" class="textarea" placeholder="Mensaje"></textarea>
+                        <textarea name="message" id="" cols="30" rows="5" class="textarea" placeholder="Mensaje"></textarea>
                     </div>
                     <div class="content_button_footer_send">
                         <button type="submit">Envíar</button>
