@@ -61,28 +61,26 @@
             {{-- Listado de maquinas --}}
             <div class="container_maquinas">
                 <div class="int">
-                    @for ($i = 0; $i < 6; $i++)
+                    @foreach ($maquinas as $item)
                         <div class="box_maquina">
-                            <img src="{{ url('images/maquinas/Maq _1.png') }}" alt="">
-                            <h1 class="h1">Cepilladora de fruta</h1>
+                            <img src="{{ url($item->image) }}" alt="">
+                            <h1 class="h1">{{ $item->name }}</h1>
                             <div class="iso">
-                                <p>Acero Inoxidable</p>
+                                <p>{{ $item->model }}</p>
                             </div>
                             <p class="txt_slider">
-                                Diseñada para eliminar impurezas, fertilizantes o tierra en fruta o verdura, integrar los
-                                sistemas
-                                de
-                                lavado, secado y empacado del producto de forma inmediata.
+                                {{ $item->objetivo }}
                             </p>
-                            <a href="">
+                            <a href="{{ route('directory.show', $item) }}">
                                 <div class="hre">
                                     <p class="p">Saber más</p>
                                     <x-icons.arrowDerecha />
                                 </div>
                             </a>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
+                {{ $maquinas->links() }}
                 <div class="pagination">
                     <button class="btn_pagination">Anterior</button>
                     <ul class="numeros_p">
@@ -106,7 +104,7 @@
                             integra todas nuestras especialidades para la puesta en marcha de una planta en un tiempo
                             determinado, incluye:
                         </p>
-                        <a href="">
+                        <a href="{{ route('turnkey.index') }}">
                             <div class="href_blanco">
                                 <p class="p_a">Saber más</p>
                                 <x-icons.arrowDerecha />

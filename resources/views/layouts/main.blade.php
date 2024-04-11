@@ -18,7 +18,7 @@
     @vite('resources/sass/main.scss')
 </head>
 
-<body>
+<body class="@yield('boby')">
 
     @yield('popups')
 

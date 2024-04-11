@@ -7,12 +7,22 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations. 
      */
     public function up(): void
     {
         Schema::create('directories', function (Blueprint $table) {
             $table->id();
+            $table->foreign('categorie_id')->references('id')->on('categories');
+            $table->unsignedBigInteger('categorie_id')->nullable();
+            $table->string('image');
+            $table->string('name');
+            $table->string('model');
+            $table->string('fabricacion');
+            $table->string('capacidad');
+            $table->string('componentes');
+            $table->text('objetivo');
+            $table->integer('order');
             $table->timestamps();
         });
     }

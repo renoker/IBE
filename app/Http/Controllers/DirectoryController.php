@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreDirectoryRequest;
 use App\Http\Requests\UpdateDirectoryRequest;
 use App\Models\Directory;
+use App\Models\DirectoryFruit;
 
 class DirectoryController extends Controller
 {
@@ -13,15 +14,27 @@ class DirectoryController extends Controller
      */
     public function index()
     {
-        return view('pages.catalogo');
+        $maquinaria = Directory::paginate(6);
+        return view(
+            'pages.catalogo',
+            [
+                'maquinas' => $maquinaria
+            ]
+        );
     }
 
     /**
      * Display a listing of the resource.
      */
-    public function show()
+    public function show(Directory $directory)
     {
-        return view('pages.detalle');
+        $frutas = DirectoryFruit::where('directorie_id', $directory->id)->get();
+        $relacionados = Directory::whereNotIn('id', [$directory->id])->limit(6)->get();
+        return view('pages.detalle', [
+            'row'           => $directory,
+            'frutas'        => $frutas,
+            'relacionados'  => $relacionados
+        ]);
     }
 
 

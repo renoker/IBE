@@ -125,27 +125,24 @@
             {{-- Maquinas --}}
             <div class="container_mquinaria">
                 <div class="int">
-                    @for ($i = 0; $i < 3; $i++)
+                    @foreach ($list as $item)
                         <div class="box_maquina">
-                            <img src="{{ url('images/maquinas/Maq _1.png') }}" alt="">
-                            <h1 class="h1">Cepilladora de fruta</h1>
+                            <img src="{{ url($item->image) }}" alt="">
+                            <h1 class="h1">{{ $item->name }}</h1>
                             <div class="iso">
-                                <p>Acero Inoxidable</p>
+                                <p>{{ $item->model }}</p>
                             </div>
                             <p class="txt_slider">
-                                Diseñada para eliminar impurezas, fertilizantes o tierra en fruta o verdura, integrar los
-                                sistemas
-                                de
-                                lavado, secado y empacado del producto de forma inmediata.
+                                {{ $item->objetivo }}
                             </p>
-                            <a href="">
+                            <a href="{{ route('directory.show', $item) }}">
                                 <div class="hre">
                                     <p class="p">Saber más</p>
                                     <x-icons.arrowDerecha />
                                 </div>
                             </a>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
                 <div class="content_button_maquinas">
                     <button type="button">Ver todo <x-icons.arrowDerechaBig /></button>

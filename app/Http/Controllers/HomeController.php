@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Directory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,6 +12,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.home');
+        $maquinas = Directory::limit(3)->get();
+        return view('pages.home', [
+            'list'  => $maquinas
+        ]);
     }
 }
