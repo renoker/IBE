@@ -5,7 +5,7 @@ const buttonOpen = document.getElementById('openPopUp')
 
 menuButtonNext.addEventListener('click', () => {
     var posicion = document.getElementById('posicion').value    
-    if(posicion < 8) {
+    if(posicion < 31) {
         var lugar = Number(posicion) + 1
         window.location.href = '/catalogo/' + lugar + '/#detalle_maquina'
     }    

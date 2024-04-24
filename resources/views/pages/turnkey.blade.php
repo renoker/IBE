@@ -1,6 +1,6 @@
 @extends('layouts.main')
-@section('title', 'IBE - Nosotros')
-
+@section('title', 'IBE - Turnkey')
+@section('boby', 'main_body')
 @section('content')
     <div class="conten_padre">
         <div class="banner_general">
@@ -8,10 +8,9 @@
             <div class="content_inter_banner">
                 <div class="part_one">
                     <h1 class="encabezado">Turnkey</h1>
-                    <p class="text">En IBE contamos con nuestro servicio integral más completo “Turnkey contract” en el que
-                        integramos cada una de nuestras especialidades, para poner en marcha cualquier planta, desde: obra
-                        civil, Instalación eléctrica (alta,media, baja tensión),instalación de máquinas, programación de
-                        componentes, sistemas neumáticos e hidráulicos, hasta hacer entrega y puesta en marcha.</p>
+                    <p class="text">
+                        {{ __('At IBE we have our most complete comprehensive service “Turnkey contract” in which we integrate each of our specialties, to start up any plant, from: civil works, electrical installation (high, medium, low voltage), machine installation, programming of components, pneumatic and hydraulic systems, until delivery and commissioning.') }}
+                    </p>
                 </div>
                 <div class="part_two">
                     <img src="{{ url('icons/Sello.png') }}" alt="">
@@ -22,19 +21,25 @@
         <div class="box_banner_azul">
             <div class="content_banner_azul">
                 <div class="part_one">
-                    <h1 class="h1">Nuestro proceso</h1>
+                    <div class="b">
+                        <h1 class="h1">{!! htmlspecialchars_decode(__("TURNKEY PROJECT <br> 'Turnkey contract'.")) !!}</h1>
+                        <div class="box_amarillo">
+                            <p>Turnkey</p>
+                        </div>
+                    </div>
                     <p class="text">
-                        <span>IBE Integral Solutions</span> cuenta con la infraestructura y alcances para
-                        <span>fabricar, desarrollar</span>
-                        e <span>instalar</span> equipos que sean eficientes en cualquier proceso que su empresa requiera,
-                        contamos con
-                        nuestro servicio integral mas completo <span>“Llave en mano”</span> o <span>“Turnkey
-                            contract”</span>
-                        <br>
-                        Queremos ser su mejor opción
-                        para asegurar cada uno de sus procesos, tomando en cuenta; calidad, producción, competitividad y
-                        satisfacción.
+                        {!! htmlspecialchars_decode(
+                            __(
+                                '<span>IBE</span> we have our most complete comprehensive <span>“Turnkey contract”</span> or <span>“Turnkey contract”</span> service in which we integrate each and every one of our specialties, to start up any plant, from: civil works, electrical installation (high, medium, low tension), installation of machines, programming of components, pneumatic and hydraulic systems, until turnkey delivery. <br><br> <span>We want to be your best option to ensure each of your processes, taking into account; quality, production, competitiveness and satisfaction.</span>',
+                            ),
+                        ) !!}
                     </p>
+                    <a href="{{ route('turnkey.index') }}">
+                        <div class="href_blanco">
+                            <p class="p_a">{{ __('Know more') }}</p>
+                            <x-icons.arrowDerecha />
+                        </div>
+                    </a>
                 </div>
                 <div class="part_two">
                     <img src="{{ url('icons/hand_key.png') }}" alt="">
@@ -45,48 +50,47 @@
                 <div class="inter">
                     <div class="item">
                         <div class="icon_1"></div>
-                        <h6 class="h6">Obra Civil</h6>
-                        <p class="text">Preparación de la nave desde los cimientos, obra civil, etc.</p>
+                        <h6 class="h6">{!! htmlspecialchars_decode(__('Civil Works')) !!}</h6>
+                        <p class="text">{!! htmlspecialchars_decode(__('Preparation of the building from the foundations, civil works, etc.')) !!}</p>
                     </div>
                     <div class="item">
                         <div class="icon_2"></div>
-                        <h6 class="h6">Diseño y fabricación<br></h6>
-                        <p class="text">Fabricación de <br> equipos.</p>
+                        <h6 class="h6">{!! htmlspecialchars_decode(__('Design and manufacturing')) !!}</h6>
+                        <p class="text">{!! htmlspecialchars_decode(__('Manufacturing of <br> equipment.')) !!}</p>
                     </div>
                     <div class="item">
                         <div class="icon_3"></div>
-                        <h6 class="h6">Instalación <br> eléctrica</h6>
-                        <p class="text">Instalación base “Instalación eléctrica” (alta, media, baja <br> tensión)
-                            tuberías, <br>
-                            charolas, etc..</p>
+                        <h6 class="h6">{!! htmlspecialchars_decode(__('Electrical <br> Installation')) !!}</h6>
+                        <p class="text">{!! htmlspecialchars_decode(
+                            __("Base installation 'Electrical installation' (high, medium, low <br> voltage) pipelines, <br> trays, etc.."),
+                        ) !!}</p>
                     </div>
                     <div class="item">
                         <div class="icon_4"></div>
-                        <h6 class="h6">Automatización</h6>
-                        <p class="text">Automatización y <br> control de equipos.</p>
+                        <h6 class="h6">{!! htmlspecialchars_decode(__('Automation')) !!}</h6>
+                        <p class="text">{!! htmlspecialchars_decode(__('Automation and <br> equipment control.')) !!}</p>
                     </div>
                     <div class="item">
                         <div class="icon_5"></div>
-                        <h6 class="h6">Distribución <br> de planta</h6>
-                        <p class="text">Diseño de maquinaria <br> y distribución de <br> planta.</p>
+                        <h6 class="h6">{!! htmlspecialchars_decode(__('Plant Layout <br> Distribution')) !!}</h6>
+                        <p class="text">{!! htmlspecialchars_decode(__('Machinery design <br> and plant layout <br> distribution.')) !!}</p>
                     </div>
                     <div class="item">
                         <div class="icon_6"></div>
-                        <h6 class="h6">Instalación <br> de maquinaria</h6>
-                        <p class="text">Instalación de la <br> maquinaria, conexión <br> y componentes, <br> programación,
-                            <br> hidráulica,
-                            etc.
-                        </p>
+                        <h6 class="h6">{!! htmlspecialchars_decode(__('Machinery <br> Installation')) !!}</h6>
+                        <p class="text">{!! htmlspecialchars_decode(
+                            __('Machinery installation, connection <br> and components, <br> programming, <br> hydraulics, etc.'),
+                        ) !!}</p>
                     </div>
                     <div class="item">
                         <div class="icon_7"></div>
-                        <h6 class="h6">Puesta en <br> marcha</h6>
-                        <p class="text">Puesta en marcha <br> y en pleno <br> funcionamiento.</p>
+                        <h6 class="h6">{!! htmlspecialchars_decode(__('Commissioning')) !!}</h6>
+                        <p class="text">{!! htmlspecialchars_decode(__('Commissioning <br> and full <br> operation.')) !!}</p>
                     </div>
                     <div class="item">
                         <div class="icon_8"></div>
-                        <h6 class="h6">Capacitación <br> de personal</h6>
-                        <p class="text">Capacitación a <br> personal asignado <br> para la operación.</p>
+                        <h6 class="h6">{!! htmlspecialchars_decode(__('Personnel <br> Training')) !!}</h6>
+                        <p class="text">{!! htmlspecialchars_decode(__('Training for <br> assigned personnel <br> for operation.')) !!}</p>
                     </div>
                 </div>
             </div>
@@ -98,10 +102,10 @@
                             <img src="{{ url('icons/icon_b_1.png') }}" alt="">
                         </div>
                         <div class="box_info">
-                            <h1 class="h1">Obra Civil</h1>
-                            <p class="p">Revision y factivilidad de area, estudio de impacto ambiental,trazo de terreno
-                                con referencias topograficas,diseño de obra. desplazamiento natural de terreno y
-                                construcción genaral.</p>
+                            <h1 class="h1">{{ __('Civil Works') }}</h1>
+                            <p class="p">
+                                {{ __('Area review and feasibility, environmental impact study, plot of land with topographic references, work design. natural displacement of land and general construction.') }}
+                            </p>
                         </div>
                     </div>
                     <div class="part_two">
@@ -149,12 +153,10 @@
                     </div>
                     <div class="part_one_r">
                         <div class="box_info">
-                            <h1 class="h1">Fabricacion de Maquinaria</h1>
-                            <p class="p">Incluye estudio de factibilidad con suministrador de energía, bases de
-                                diseño, transición areo-subterraneo, media tensión, líneas de media tensión a subestación
-                                eléctrica, diagrama unifilar de media tensión. Baja tensión, diagramas, cuadros de carga,
-                                iluminación y contactos en nave, domótica, sistema de tierras físicas, SPDA, sistema de
-                                emergencias y catálogo de conceptos.</p>
+                            <h1 class="h1">{{ __('Design and manufacturing') }}</h1>
+                            <p class="p">
+                                {{ __('Design and manufacturing of machinery according to specifications, requirements or customer expectations, based on the integration of machinery, taking care of each of the applicable legal compliances and quality standards for each process.') }}
+                            </p>
                         </div>
                         <div class="box_img">
                             <img src="{{ url('icons/icon_b_2.png') }}" alt="">
@@ -168,12 +170,12 @@
                             <img src="{{ url('icons/icon_b_3.png') }}" alt="">
                         </div>
                         <div class="box_info">
-                            <h1 class="h1">Instalación Eléctrica</h1>
-                            <p class="p">Incluye estudio de factibilidad con suministrador de energía, bases de
-                                diseño, transición areo-subterraneo, media tensión, líneas de media tensión a subestación
-                                eléctrica, diagrama unifilar de media tensión. Baja tensión, diagramas, cuadros de carga,
-                                iluminación y contactos en nave, domótica, sistema de tierras físicas, SPDA, sistema de
-                                emergencias y catálogo de conceptos.</p>
+                            <h1 class="h1">{!! htmlspecialchars_decode(__('Electrical Installation')) !!}</h1>
+                            <p class="p">{!! htmlspecialchars_decode(
+                                __(
+                                    'Includes feasibility study with energy supplier, design bases, aerial-underground transition, medium voltage, medium voltage lines to electrical substation, medium voltage single-line diagram. Low voltage, diagrams, load charts, lighting and contacts in the warehouse, home automation, physical ground system, SPDA, emergency system and catalog of concepts.',
+                                ),
+                            ) !!}</p>
                         </div>
                     </div>
                     <div class="part_two">
@@ -221,9 +223,12 @@
                     </div>
                     <div class="part_one_r">
                         <div class="box_info">
-                            <h1 class="h1">Automatización</h1>
-                            <p class="p">Automatización línea de proceso integrando cada uno de las maquinas, siendo
-                                programadas para eficientar el resultado final</p>
+                            <h1 class="h1">{{ __('Automation') }}</h1>
+                            <p class="p">{!! htmlspecialchars_decode(
+                                __(
+                                    'Process line automation integrating each of the machines, being programmed to efficiently achieve the final result.',
+                                ),
+                            ) !!}</p>
                         </div>
                         <div class="box_img">
                             <img src="{{ url('icons/icon_b_4.png') }}" alt="">
@@ -237,9 +242,12 @@
                             <img src="{{ url('icons/icon_b_5.png') }}" alt="">
                         </div>
                         <div class="box_info">
-                            <h1 class="h1">Distribución de planta</h1>
-                            <p class="p">Diseño y flujo de proceso desde la recepción, hasta el empaque final tomando
-                                e cuenta las dimensiones con las que cueste el cliente y así mismo distribuirlas áreas.</p>
+                            <h1 class="h1">{!! htmlspecialchars_decode(__('Plant Layout Distribution')) !!}</h1>
+                            <p class="p">{!! htmlspecialchars_decode(
+                                __(
+                                    'Design and process flow from reception to final packaging taking into account the dimensions with which the client costs and also distribute them areas.',
+                                ),
+                            ) !!}</p>
                         </div>
                     </div>
                     <div class="part_two">
@@ -287,8 +295,8 @@
                     </div>
                     <div class="part_one_r">
                         <div class="box_info">
-                            <h1 class="h1">Instalación de <br> Maquinaria</h1>
-                            <p class="p">Innstalación de toda la línea de proceso y perifericos.</p>
+                            <h1 class="h1">{!! htmlspecialchars_decode(__('Machinery Installation')) !!}</h1>
+                            <p class="p">{!! htmlspecialchars_decode(__('Installation of the entire process line and peripherals')) !!}</p>
                         </div>
                         <div class="box_img">
                             <img src="{{ url('icons/icon_b_6.png') }}" alt="">
@@ -302,8 +310,8 @@
                             <img src="{{ url('icons/icon_b_7.png') }}" alt="">
                         </div>
                         <div class="box_info">
-                            <h1 class="h1">Puesta Marcha</h1>
-                            <p class="p">Pruebas de funcionamiento mecánico, neumático, eléctrico y control.</p>
+                            <h1 class="h1">{!! htmlspecialchars_decode(__('Commissioning')) !!}</h1>
+                            <p class="p">{!! htmlspecialchars_decode(__('Mechanical, pneumatic, electrical and control operation tests.')) !!}</p>
                         </div>
                     </div>
                     <div class="part_two">
@@ -351,9 +359,8 @@
                     </div>
                     <div class="part_one_r">
                         <div class="box_info">
-                            <h1 class="h1">Capacitación de personal</h1>
-                            <p class="p">Capacitación de la operación de la línea personalizadas por nuestro equipo
-                                especializado IBE para cada etapa de el proceso.</p>
+                            <h1 class="h1">{{ __('Personnel Training') }}</h1>
+                            <p class="p">{!! htmlspecialchars_decode(__('We provide the training to be able to operate your plant without any problem.')) !!}</p>
                         </div>
                         <div class="box_img">
                             <img src="{{ url('icons/icon_b_8.png') }}" alt="">
@@ -363,6 +370,7 @@
             </div>
             {{-- Nuestros Valores --}}
             <div class="box_general mt-10">
+                <h1 class="h1">{{ __('Certifications') }}</h1>
                 <div class="content_slider">
                     <div class="slider">
                         <section class="splide" id="certificaciones" aria-label="Certificaciones">
@@ -370,19 +378,12 @@
                                 <ul class="splide__list">
                                     <li class="splide__slide">
                                         <p class="txt_slider">
-                                            Contamos con certificado IQNET relacionada con la red de certificación más
-                                            grande, creíble y confiable del mundo y tendrán sus datos presentes en la base
-                                            de datos internacional de empresas certificadas evaluadas como proveedores
-                                            mundialmente reconocidos.
+                                            {{ __('Our ISO 9001:2015 certification reinforces and ensures the quality of the services and products that we offer to our interested parties, complying with each of the highest quality standards of each of our processes.') }}
                                         </p>
                                     </li>
                                     <li class="splide__slide">
                                         <p class="txt_slider">
-                                            Nuestra certificación ISO 9001:2015 refuerza y asegura la calidad de los
-                                            servicios y
-                                            productos que ofrecemos a nuestras partes interesadas cumpliendo con cada uno de
-                                            los
-                                            estándares más altos de calidad de cada uno de nuestros procesos
+                                            {{ __('We have an IQNET certificate related to the largest, most credible and reliable certification network in the world and will have your data present in the international database of certified companies evaluated as world-renowned suppliers.') }}
                                         </p>
                                     </li>
                                 </ul>
@@ -390,8 +391,9 @@
                         </section>
                     </div>
                     <div class="sellos">
-                        <img src="{{ url('icons/sello_3.png') }}" class="img_sello" alt="">
-                        <img src="{{ url('icons/sello_4.png') }}" class="img_sello" alt="">
+                        <img src="{{ url('icons/sello_1.png') }}" class="img_sello" alt="">
+                        <img src="{{ url('icons/sello_2.png') }}" class="img_sello" alt="">
+                        <img src="{{ url('icons/iso_9001.png') }}" class="img_sello" alt="">
                     </div>
                 </div>
             </div>

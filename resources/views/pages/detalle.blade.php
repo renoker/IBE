@@ -1,6 +1,6 @@
 @extends('layouts.main')
-@section('title', 'IBE - Home')
-
+@section('title', 'IBE - Catálogo')
+@section('boby', 'main_body')
 @section('popups')
     <div id="popup">
         <div class="opacity" id="closePopUp">
@@ -51,7 +51,6 @@
 @section('content')
     <div class="content_padre_catalogo">
         <div class="banner_general">
-            <img src="{{ url('images/nosotros.jpg') }}" class="img_banner" alt="">
             <div class="content_inter_banner">
                 <div class="part_one">
                     <h1 class="encabezado">Nuestro catálogo</h1>
@@ -66,8 +65,35 @@
                 </div>
             </div>
         </div>
+        <div class="box_general mt-4">
+            <h1 class="h1">{{ __('Certifications') }}</h1>
+            <div class="content_slider">
+                <div class="slider">
+                    <section class="splide" id="certificaciones" aria-label="Certificaciones">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <li class="splide__slide">
+                                    <p class="txt_slider">
+                                        {{ __('Our ISO 9001:2015 certification reinforces and ensures the quality of the services and products that we offer to our interested parties, complying with each of the highest quality standards of each of our processes.') }}
+                                    </p>
+                                </li>
+                                <li class="splide__slide">
+                                    <p class="txt_slider">
+                                        {{ __('We have an IQNET certificate related to the largest, most credible and reliable certification network in the world and will have your data present in the international database of certified companies evaluated as world-renowned suppliers.') }}
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+                <div class="sellos">
+                    <img src="{{ url('icons/sello_1.png') }}" class="img_sello" alt="">
+                    <img src="{{ url('icons/sello_2.png') }}" class="img_sello" alt="">
+                    <img src="{{ url('icons/iso_9001.png') }}" class="img_sello_2" alt="">
+                </div>
+            </div>
+        </div>
         {{-- Categoria --}}
-
         <div class="content_padre_detalle_catologo" id="detalle_maquina">
             <div class="conteiner_detalle_categoria">
                 <div class="left">
@@ -97,13 +123,15 @@
                 </div>
                 <div class="right">
                     <div class="content_img_maquina">
-                        <img src="{{ url($row->image) }}" alt="">
+                        <img src="{{ url($row->image) }}" class="maquina" alt="">
+                        <img src="{{ url($row->logo_servicio) }}" class="modelo_img" alt="">
                     </div>
                     <div class="contenedor_botones_detalle">
                         <button type="button" class="btn_large" id="openPopUp">Cotizar</button>
                         <div class="cont_slider_buttons">
                             <input type="hidden" value="{{ $row->id }}" id="posicion">
-                            <button type="button" class="btn_large" id="prew"><x-icons.arrowIzq /> Anterior</button>
+                            <button type="button" class="btn_large" id="prew"><x-icons.arrowIzq />
+                                Anterior</button>
                             <button type="button" class="btn_large" id="next">Siguiente
                                 <x-icons.arrowDerechaBig /></button>
                         </div>
@@ -121,23 +149,24 @@
                     @endforeach
                 </div>
             </div>
-
-            <div class="content_banner_azul">
+            <div class="content_banner_azul" style="margin: 6rem auto">
                 <div class="part_one">
                     <div class="b">
-                        <h1 class="h1">Nuestro proceso de fabricación</h1>
+                        <h1 class="h1">{!! htmlspecialchars_decode(__("TURNKEY PROJECT <br> 'Turnkey contract'.")) !!}</h1>
                         <div class="box_amarillo">
                             <p>Turnkey</p>
                         </div>
                     </div>
                     <p class="text">
-                        El proyecto más integral que tenemos, ya que el proyecto "llave en mano" o "turnkey contract"
-                        integra todas nuestras especialidades para la puesta en marcha de una planta en un tiempo
-                        determinado, incluye:
+                        {!! htmlspecialchars_decode(
+                            __(
+                                '<span>IBE</span> we have our most complete comprehensive <span>“Turnkey contract”</span> or <span>“Turnkey contract”</span> service in which we integrate each and every one of our specialties, to start up any plant, from: civil works, electrical installation (high, medium, low tension), installation of machines, programming of components, pneumatic and hydraulic systems, until turnkey delivery. <br><br> <span>We want to be your best option to ensure each of your processes, taking into account; quality, production, competitiveness and satisfaction.</span>',
+                            ),
+                        ) !!}
                     </p>
                     <a href="{{ route('turnkey.index') }}">
                         <div class="href_blanco">
-                            <p class="p_a">Saber más</p>
+                            <p class="p_a">{{ __('Know more') }}</p>
                             <x-icons.arrowDerecha />
                         </div>
                     </a>

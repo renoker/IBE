@@ -6,15 +6,27 @@ use App\Http\Requests\StoreDirectoryRequest;
 use App\Http\Requests\UpdateDirectoryRequest;
 use App\Models\Directory;
 use App\Models\DirectoryFruit;
+use Illuminate\Support\Facades\App;
 
 class DirectoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($language = null)
     {
-        $maquinaria = Directory::paginate(6);
+        if ($language == null) {
+            $language = App::getLocale();
+        }
+
+        if ($language == 'es') {
+            $maquinaria = Directory::select(['id', 'categorie_id', 'logo_servicio', 'image', 'model', 'name_es AS name', 'fabricacion_es AS fabricacion', 'capacidad_es AS capacidad', 'componentes_es AS componentes', 'objetivo_es AS objetivo'])->paginate(6);
+        } elseif ($language == 'en') {
+            $maquinaria = Directory::select(['id', 'categorie_id', 'logo_servicio', 'image', 'model', 'name_en AS name', 'fabricacion_en AS fabricacion', 'capacidad_en AS capacidad', 'componentes_en AS componentes', 'objetivo_en AS objetivo'])->paginate(6);
+        } else {
+            $maquinaria = Directory::select(['id', 'categorie_id', 'logo_servicio', 'image', 'model', 'name_es AS name', 'fabricacion_es AS fabricacion', 'capacidad_es AS capacidad', 'componentes_es AS componentes', 'objetivo_es AS objetivo'])->paginate(6);
+        }
+
         return view(
             'pages.catalogo',
             [
@@ -26,12 +38,27 @@ class DirectoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function show(Directory $directory)
+    public function show(Directory $directory, $language = null)
     {
+        if ($language == null) {
+            $language = App::getLocale();
+        }
+
+        if ($language == 'es') {
+            $detalle = Directory::select(['id', 'categorie_id', 'logo_servicio', 'image', 'model', 'name_es AS name', 'fabricacion_es AS fabricacion', 'capacidad_es AS capacidad', 'componentes_es AS componentes', 'objetivo_es AS objetivo'])->where('id', $directory->id)->first();
+            $relacionados = Directory::select(['id', 'categorie_id', 'image', 'model', 'name_es AS name', 'fabricacion_es AS fabricacion', 'capacidad_es AS capacidad', 'componentes_es AS componentes', 'objetivo_es AS objetivo'])->whereNotIn('id', [$directory->id])->limit(6)->get();
+        } elseif ($language == 'en') {
+            $detalle = Directory::select(['id', 'categorie_id', 'logo_servicio', 'image', 'model', 'name_en AS name', 'fabricacion_en AS fabricacion', 'capacidad_en AS capacidad', 'componentes_en AS componentes', 'objetivo_en AS objetivo'])->where('id', $directory->id)->first();
+            $relacionados = Directory::select(['id', 'categorie_id', 'image', 'model', 'name_en AS name', 'fabricacion_en AS fabricacion', 'capacidad_en AS capacidad', 'componentes_en AS componentes', 'objetivo_en AS objetivo'])->whereNotIn('id', [$directory->id])->limit(6)->get();
+        } else {
+            $detalle = Directory::select(['id', 'categorie_id', 'logo_servicio', 'image', 'model', 'name_es AS name', 'fabricacion_es AS fabricacion', 'capacidad_es AS capacidad', 'componentes_es AS componentes', 'objetivo_es AS objetivo'])->where('id', $directory->id)->first();
+            $relacionados = Directory::select(['id', 'categorie_id', 'image', 'model', 'name_es AS name', 'fabricacion_es AS fabricacion', 'capacidad_es AS capacidad', 'componentes_es AS componentes', 'objetivo_es AS objetivo'])->whereNotIn('id', [$directory->id])->limit(6)->get();
+        }
+
         $frutas = DirectoryFruit::where('directorie_id', $directory->id)->get();
-        $relacionados = Directory::whereNotIn('id', [$directory->id])->limit(6)->get();
+
         return view('pages.detalle', [
-            'row'           => $directory,
+            'row'           => $detalle,
             'frutas'        => $frutas,
             'relacionados'  => $relacionados
         ]);

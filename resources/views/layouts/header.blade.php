@@ -3,17 +3,22 @@
         <ul class="ul">
             <li class="@if (Route::currentRouteName() == 'nosotros.index') active @endif">
                 <a href="{{ route('nosotros.index') }}" class="menu">
-                    Nosotros
+                    {{ __('Us') }}
                 </a>
             </li>
             <li class="@if (Route::currentRouteName() == 'turnkey.index') active @endif">
                 <a href="{{ route('turnkey.index') }}" class="menu">
-                    Turnkey
+                    {{ __('Turnkey') }}
                 </a>
             </li>
             <li class="@if (Route::currentRouteName() == 'directory.index') active @endif">
                 <a href="{{ route('directory.index') }}" class="menu">
-                    Catálogo
+                    {{ __('Catalogue') }}
+                </a>
+            </li>
+            <li class="@if (Route::currentRouteName() == 'servicios.index') active @endif">
+                <a href="{{ route('servicios.index') }}" class="menu">
+                    {{ __('Services') }}
                 </a>
             </li>
             <li>
@@ -21,14 +26,15 @@
                     <div class="logo"></div>
                 </a>
             </li>
-            <li class="@if (Route::currentRouteName() == 'servicios.index') active @endif">
-                <a href="{{ route('servicios.index') }}" class="menu">
-                    Servicios
-                </a>
-            </li>
+
             <li class="@if (Route::currentRouteName() == 'contacto.index') active @endif">
                 <a href="{{ route('contacto.index') }}" class="menu">
-                    Contacto
+                    {{ __('Contact') }}
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('contacto.index') }}" class="menu">
+                    Brouchure
                 </a>
             </li>
             <li class="relative_li" id="btn_redes">
@@ -53,6 +59,17 @@
                             <a href="">TikTok</a>
                         </li>
                     </ul>
+                </div>
+            </li>
+            <li>
+                <div class="idioma_header">
+                    <a href="{{ route('set_language', ['es']) }}">
+                        <p class="txt_idioma">Es</p>
+                    </a>
+                    <p class="txt_idioma">|</p>
+                    <a href="{{ route('set_language', ['en']) }}">
+                        <p class="txt_idioma">En</p>
+                    </a>
                 </div>
             </li>
         </ul>

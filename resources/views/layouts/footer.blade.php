@@ -6,11 +6,16 @@
                     <div class="left">
                         <img src="{{ url('icons/IBE-Logotipo_06.png') }}" alt="" class="logo_footer">
                         <h6 class="h6_logo">Integral Solutions</h6>
-                        <p class="p_logo">Procesos Productivos <br> Agroindustriales</p>
+                        <p class="p_logo">
+                            {!! htmlspecialchars_decode(__('Productive Processes <br> Agroindustrial')) !!}
+                        </p>
 
                         <p class="info_left_footer">
-                            Es un placer para nosotros ponernos a sus <br> órdenes, y presentarle toda la gama de <br>
-                            servicios y productos con las que cuenta <br> IntegraIBE
+                            {!! htmlspecialchars_decode(
+                                __(
+                                    'It is a pleasure for us to be at your service and present <br> the full range of services and products available from IntegraIBE.',
+                                ),
+                            ) !!}
                         </p>
                     </div>
                     <div class="right">
@@ -43,24 +48,27 @@
             </div>
             <div class="parte-right">
                 <div class="box">
-                    <h5 class="encabezado">Contáctanos</h5>
-                    <p class="p">En IBE Solutions queremos ser un auxiliar primordial para el desarrollo de su
-                        empresa. compártenos tus datos de contacto</p>
+                    <h5 class="encabezado">{!! htmlspecialchars_decode(__('Contact Us')) !!}</h5>
+                    <p class="p">{!! htmlspecialchars_decode(
+                        __(
+                            'At IBE Solutions, we want to be a key partner in the development of your company. Please share your contact information with us.',
+                        ),
+                    ) !!}</p>
                     <form action="" method="post">
                         <div class="box_input">
                             <div class="icon_input">
                                 <img src="{{ url('icons/user.png') }}" alt="">
                             </div>
-                            <input type="text" placeholder="Compañia">
+                            <input type="text" placeholder="{!! htmlspecialchars_decode(__('Company')) !!}">
                         </div>
                         <div class="box_input mt-15">
                             <div class="icon_input">
                                 <img src="{{ url('icons/cartita.png') }}" alt="">
                             </div>
-                            <input type="text" placeholder="Correo">
+                            <input type="text" placeholder="{!! htmlspecialchars_decode(__('Email')) !!}">
                         </div>
                         <div class="content_button_footer_send">
-                            <button type="submit">Envíar</button>
+                            <button type="submit">{{ __('Send') }}</button>
                         </div>
                     </form>
                 </div>
@@ -71,33 +79,33 @@
         <div class="footer-bottom">
             <ul>
                 <li>
-                    <a href="" class="menu">
-                        Nosotros
+                    <a href="{{ route('nosotros.index') }}" class="menu">
+                        {{ __('Us') }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('turnkey.index') }}" class="menu">
+                        {{ __('Turnkey') }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('directory.index') }}" class="menu">
+                        {{ __('Catalogue') }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('contacto.index') }}" class="menu">
+                        {{ __('Contact') }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('servicios.index') }}" class="menu">
+                        {{ __('Services') }}
                     </a>
                 </li>
                 <li>
                     <a href="" class="menu">
-                        Turnkey
-                    </a>
-                </li>
-                <li>
-                    <a href="" class="menu">
-                        Catálogo
-                    </a>
-                </li>
-                <li>
-                    <a href="" class="menu">
-                        Contacto
-                    </a>
-                </li>
-                <li>
-                    <a href="" class="menu">
-                        Servicio
-                    </a>
-                </li>
-                <li>
-                    <a href="" class="menu">
-                        Politica de privacidad
+                        {{ __('Privacy Policy') }}
                     </a>
                 </li>
             </ul>

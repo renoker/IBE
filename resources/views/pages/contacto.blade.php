@@ -1,6 +1,6 @@
 @extends('layouts.main')
-@section('title', 'IBE - Home')
-
+@section('title', 'IBE - Contacto')
+@section('boby', 'main_body')
 @section('content')
     <div class="content_padre_contacto">
         <div class="banner">

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
       arrows: false,
       type: 'fade',
       pagination: false,
-      autoplay: true,
+      autoplay: false, 
     }).mount();
   
     //attach events to custom buttons

@@ -1,17 +1,16 @@
 @extends('layouts.main')
-@section('title', 'IBE - Home')
-
+@section('title', 'IBE - Catálogo')
+@section('boby', 'main_body')
 @section('content')
     <div class="content_padre_catalogo">
         <div class="banner_general">
             <img src="{{ url('images/nosotros.jpg') }}" class="img_banner" alt="">
             <div class="content_inter_banner">
                 <div class="part_one">
-                    <h1 class="encabezado">Nuestro catálogo</h1>
-                    <p class="text">En IBE SOLUTIONS ofrecemos el servicio de diseño y desarrollo de equipos para cualquier
-                        sector industrial y grado alimenticio. Contamos con un extenso catálogo de productos, sin embargo,
-                        en nuestra compañía contamos con el alcance para realizar diseños personalizados basados en las
-                        necesidades y expectativas de nuestras partes interesadas.</p>
+                    <h1 class="encabezado">{{ __('Our catalog') }}</h1>
+                    <p class="text">
+                        {{ __('At IBE SOLUTIONS we offer the design and development service of equipment for any industrial sector and food grade. We have an extensive catalog of products, however, in our company we have the scope to make personalized designs based on the needs and expectations of our interested parties.') }}
+                    </p>
                 </div>
                 <div class="part_two">
                     <img src="{{ url('icons/Sello.png') }}" alt="">
@@ -20,41 +19,41 @@
         </div>
         {{-- Categoria --}}
         <div class="conteiner_categoria">
-            <h1 class="h1_categoria">Categorias</h1>
+            <h1 class="h1_categoria">{{ __('Categories') }}</h1>
             <ul class="ul_cat">
                 <li class="li">
                     <div class="cat">
-                        <p class="p">Tolvas</p>
+                        <p class="p">{{ __('Hoppers') }}</p>
                     </div>
                 </li>
                 <li class="li">
                     <div class="cat">
-                        <p class="p">Transportadoras</p>
+                        <p class="p">{{ __('Conveyors') }}</p>
                     </div>
                 </li>
                 <li class="li">
                     <div class="cat">
-                        <p class="p">Volteadoras</p>
+                        <p class="p">{{ __('Turners') }}</p>
                     </div>
                 </li>
                 <li class="li">
                     <div class="cat">
-                        <p class="p">Extractoras</p>
+                        <p class="p">{{ __('Extractors') }}</p>
                     </div>
                 </li>
                 <li class="li">
                     <div class="cat">
-                        <p class="p">Mesas</p>
+                        <p class="p">{{ __('Tables') }}</p>
                     </div>
                 </li>
                 <li class="li">
                     <div class="cat">
-                        <p class="p">Bombas</p>
+                        <p class="p">{{ __('Bombs') }}</p>
                     </div>
                 </li>
                 <li class="li">
                     <div class="cat">
-                        <p class="p">Otros</p>
+                        <p class="p">{{ __('Others') }}</p>
                     </div>
                 </li>
             </ul>
@@ -73,7 +72,7 @@
                             </p>
                             <a href="{{ route('directory.show', $item) }}">
                                 <div class="hre">
-                                    <p class="p">Saber más</p>
+                                    <p class="p">{{ __('Know more') }}</p>
                                     <x-icons.arrowDerecha />
                                 </div>
                             </a>
@@ -81,32 +80,24 @@
                     @endforeach
                 </div>
                 {{ $maquinas->links() }}
-                <div class="pagination">
-                    <button class="btn_pagination">Anterior</button>
-                    <ul class="numeros_p">
-                        <li class="num">1</li>
-                        <li class="num">2</li>
-                        <li class="num">3</li>
-                        <li class="num">4</li>
-                    </ul>
-                    <button class="btn_pagination">Siguiente</button>
-                </div>
                 <div class="content_banner_azul">
                     <div class="part_one">
                         <div class="b">
-                            <h1 class="h1">Nuestro proceso de fabricación</h1>
+                            <h1 class="h1">{!! htmlspecialchars_decode(__("TURNKEY PROJECT <br> 'Turnkey contract'.")) !!}</h1>
                             <div class="box_amarillo">
                                 <p>Turnkey</p>
                             </div>
                         </div>
                         <p class="text">
-                            El proyecto más integral que tenemos, ya que el proyecto "llave en mano" o "turnkey contract"
-                            integra todas nuestras especialidades para la puesta en marcha de una planta en un tiempo
-                            determinado, incluye:
+                            {!! htmlspecialchars_decode(
+                                __(
+                                    '<span>IBE</span> we have our most complete comprehensive <span>“Turnkey contract”</span> or <span>“Turnkey contract”</span> service in which we integrate each and every one of our specialties, to start up any plant, from: civil works, electrical installation (high, medium, low tension), installation of machines, programming of components, pneumatic and hydraulic systems, until turnkey delivery. <br><br> <span>We want to be your best option to ensure each of your processes, taking into account; quality, production, competitiveness and satisfaction.</span>',
+                                ),
+                            ) !!}
                         </p>
                         <a href="{{ route('turnkey.index') }}">
                             <div class="href_blanco">
-                                <p class="p_a">Saber más</p>
+                                <p class="p_a">{{ __('Know more') }}</p>
                                 <x-icons.arrowDerecha />
                             </div>
                         </a>
